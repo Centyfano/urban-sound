@@ -7,7 +7,6 @@ class Conv(nn.Module):
 
     def __init__(self):
         super().__init__()
-        self.convs, self.last_shape = self.conv_blocks(4)
         self.conv1 = nn.Sequential(
             nn.Conv2d(in_channels=1,  # spectogram as grayscale
                       out_channels=16,  # 16 filters
@@ -19,8 +18,8 @@ class Conv(nn.Module):
             nn.MaxPool2d(kernel_size=2)
         )
         self.conv2 = nn.Sequential(
-            nn.Conv2d(in_channels=16,  # spectogram as grayscale
-                      out_channels=32,  # 16 filters
+            nn.Conv2d(in_channels=16,  # output from previous layer
+                      out_channels=32,  # input * 2
                       kernel_size=3,
                       stride=1,
                       padding=2
@@ -30,8 +29,8 @@ class Conv(nn.Module):
         )
 
         self.conv3 = nn.Sequential(
-            nn.Conv2d(in_channels=32,  # spectogram as grayscale
-                      out_channels=64,  # 16 filters
+            nn.Conv2d(in_channels=32, 
+                      out_channels=64, 
                       kernel_size=3,
                       stride=1,
                       padding=2
@@ -40,8 +39,8 @@ class Conv(nn.Module):
             nn.MaxPool2d(kernel_size=2)
         )
         self.conv4 = nn.Sequential(
-            nn.Conv2d(in_channels=64,  # spectogram as grayscale
-                      out_channels=128,  # 16 filters
+            nn.Conv2d(in_channels=64, 
+                      out_channels=128, 
                       kernel_size=3,
                       stride=1,
                       padding=2
