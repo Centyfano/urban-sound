@@ -9,8 +9,9 @@ The system preprocesses the audio files using Mel spectrograms and trains a deep
 * pandas
 
 ## Installation
-* Clone the repository: git clone [repository URL]
+* Clone the repository: git clone https://github.com/Centyfano/urban-sound.git
 * Install the required dependencies: `pip install -r requirements.txt`
+* Download the datsaset [here](https://urbansounddataset.weebly.com) and extract it to `data/`
 
 ## Usage
 1. Download the UrbanSound8K dataset from [link to dataset]. This dataset is used to train and test the model.
