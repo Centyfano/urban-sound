@@ -1,8 +1,8 @@
+import torchaudio
 import torch
 from torch import nn
 from torch.utils.data import DataLoader
 from preprocessing import UrbanSoundDataset
-import torchaudio
 from build_model import Conv
 
 
