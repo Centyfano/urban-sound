@@ -72,18 +72,18 @@ if __name__ ==  "__main__":
     else:
         device = "cpu"
 
-    feed_forward_net = Conv().to(device)
+    cnn = Conv().to(device)
     
     # loss
     loss_fn = nn.CrossEntropyLoss()
-    optimizer = torch.optim.Adam(feed_forward_net.parameters(), lr=LEARNING_RATE)
+    optimizer = torch.optim.Adam(cnn.parameters(), lr=LEARNING_RATE)
 
     # train the model
-    train(feed_forward_net, train_data_loader, loss_fn, optimizer, device, epochs=EPOCHS)
+    train(cnn, train_data_loader, loss_fn, optimizer, device, epochs=EPOCHS)
 
 
     # STORE
-    torch.save(feed_forward_net.state_dict(), MODEL_PATH)
+    torch.save(cnn.state_dict(), MODEL_PATH)
 
     print(f"model saved at {MODEL_PATH}")
 
